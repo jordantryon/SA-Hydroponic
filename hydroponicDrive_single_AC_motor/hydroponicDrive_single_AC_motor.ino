@@ -1,3 +1,5 @@
+// SIMPLICITY by DVT
+
 //outlet pin definitions
 #define outlet1 53  //
 #define outlet2 51  //warning lamp for low nutrient tank
