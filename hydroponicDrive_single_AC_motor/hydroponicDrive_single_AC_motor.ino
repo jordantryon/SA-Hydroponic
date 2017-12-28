@@ -1,6 +1,12 @@
-//Declare var names for the pins/outlets
+//Temperature libraries
+#include <OneWire.h>
+#include <DallasTemperature.h>
+//Humidity libraries
+#include "DHT.h"
+
+//Declare var names for the outlets
 #define outlet1 53
-#define outlet2 51  //Warning lamp
+#define outlet2 51  //warning lamp
 #define outlet3 49  //drive motor
 #define outlet4 47  //water pump
 
@@ -8,6 +14,7 @@
 #define waterSwitch 39
 #define leftSwitch 41
 #define rightSwitch 43
+#define eStop 45
 
 //Booleans for outlet on and off states
 bool on = LOW;
@@ -26,8 +33,18 @@ int rightSwitchTime = millis();
 int leftSwitchCount = 0;
 int rightSwitchCount = 0;
 
+//Temperature Sensors
+#define ONE_WIRE_BUS 8
+OneWire oneWire(ONE_WIRE_BUS);  //Setup a oneWire instance to communicate with oneWire devices
+DallasTemperature sensors(&oneWire);  //Pass the oneWire reference to Dallas Temperature
+
+//Humidity Sensor
+#define DHTPIN 9
+#define DHTTYPE DHT22
+DHT dht(DHTPIN, DHTTYPE);
+
 void setup(){
-  //Open the serial port at 9600 bps:
+  //Open the serial port at 9600 baud
   Serial.begin(9600);
   
   //Define outlet pins as outputs
@@ -47,14 +64,28 @@ void setup(){
   pinMode(leftSwitch,INPUT);
   pinMode(rightSwitch,INPUT);
 
+  //Switches
+  pinMode(eStop,INPUT);
+
+  //Start the oneWire library
+  sensors.begin();
+
+  //Humidity Sensor
+  dht.begin();
+  
   Serial.println("Clear Buffer");
   Serial.println("Starting...");
 }
+
+double tempValA;
+double tempValW;
+double humidVal;
 
 void loop(){
   /*
    * Watering routine
    */
+   
   //Forward
   digitalWrite(outlet3,on);
   
@@ -75,6 +106,27 @@ void loop(){
     
     //Wait for dripping to stop (time)
     delay(3000);
+
+    /*
+     * Get sensor data
+     */
+  
+    sensors.requestTemperatures();  //Send command to get temperature readings
+    tempValA = sensors.getTempCByIndex(1);
+    tempValW = sensors.getTempCByIndex(0);
+    humidVal = dht.readHumidity();
+  
+    /*
+     * Print sensor data
+     */
+  
+    String s1 = "SN: ";
+    String s2 = ", Temp Air (c): " + (String)tempValA;
+    String s3 = ", Temp Water (c): " + (String)tempValW;
+    String s4 = ", Humidity: " + (String)humidVal;
+    String s5 = "%, RSC: " + (String)rightSwitchCount;
+    String s6 = ", LSC: " + (String)leftSwitchCount;
+    Serial.println(s1 + s2 + s3 + s4 + s5 + s6);
     
     //Drive forward until microSwitch is no longer pressed
     while(digitalRead(waterSwitch) == HIGH){
@@ -87,7 +139,7 @@ void loop(){
     //Turn off drive motor
     digitalWrite(outlet3,off);
   }
-
+  
   /*
    * Check Sync
    */
@@ -115,23 +167,7 @@ void loop(){
     rightSwitchLockout = false;
     delay(debounceTime);
   }
-
-  //Print info
-  int timeDiff = millis() - printPrevTime;
-  if(timeDiff >= printDelay){
-    if(printCount++ % 10 == 0){
-      Serial.println("Time between trays\tLeft count\tRight count");
-    }
-    Serial.print(abs(leftSwitchTime - rightSwitchTime));
-    Serial.print(" ms\t\t\t");
-    Serial.print(leftSwitchCount);
-    Serial.print("\t\t");
-    Serial.print(rightSwitchCount);
-    Serial.println();
-
-    printPrevTime = millis();
-  }
-
+  
   /*
    * Stop Conditions
    */
@@ -145,13 +181,7 @@ void loop(){
     digitalWrite(outlet3,off);
     digitalWrite(outlet4,off);
     
-    Serial.println("Time between trays\tLeft count\tRight count");
-    Serial.print(abs(leftSwitchTime - rightSwitchTime));
-    Serial.print(" ms\t\t\t");
-    Serial.print(leftSwitchCount);
-    Serial.print("\t\t");
-    Serial.print(rightSwitchCount);
-    Serial.println();
+    Serial.println("ERROR - Time between trays exceeded 1000ms");
 
     while(true){
       digitalWrite(outlet2,on);
@@ -170,13 +200,7 @@ void loop(){
     digitalWrite(outlet3,off);
     digitalWrite(outlet4,off);
     
-    Serial.println("Time between trays\tLeft count\tRight count");
-    Serial.print(abs(leftSwitchTime - rightSwitchTime));
-    Serial.print(" ms\t\t\t");
-    Serial.print(leftSwitchCount);
-    Serial.print("\t\t");
-    Serial.print(rightSwitchCount);
-    Serial.println();
+    Serial.println("ERROR - Switch count differed by 2 or more");
 
     while(true){
       digitalWrite(outlet2,on);
@@ -184,5 +208,26 @@ void loop(){
       digitalWrite(outlet2,off);
       delay(500);
     }
+  }
+
+  //eStop was pressed
+  if(digitalRead(eStop) == LOW){
+    //!!! STOP !!!
+    //Set all outlets to off
+    digitalWrite(outlet1,off);
+    digitalWrite(outlet2,off);
+    digitalWrite(outlet3,off);
+    digitalWrite(outlet4,off);
+    
+    Serial.println("ERROR - eStop was pressed");
+    delay(250);
+    
+    while(digitalRead(eStop) == LOW){
+      digitalWrite(outlet2,on);
+      delay(200);
+      digitalWrite(outlet2,off);
+      delay(200);
+    }
+    delay(250);
   }
 }
