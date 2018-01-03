@@ -15,6 +15,7 @@
 #define leftSwitch 41
 #define rightSwitch 43
 #define eStop 45
+#define waterLevelSwitch 37
 
 //Booleans for outlet on and off states
 bool on = LOW;
@@ -22,6 +23,7 @@ bool off = HIGH;
 
 bool leftSwitchLockout = false;
 bool rightSwitchLockout = false;
+bool allowPump = true;
 
 int printDelay = 500;
 int printPrevTime = millis();
@@ -66,6 +68,7 @@ void setup(){
 
   //Switches
   pinMode(eStop,INPUT);
+  pinMode(waterLevelSwitch,INPUT);
 
   //Start the oneWire library
   sensors.begin();
@@ -96,13 +99,15 @@ void loop(){
     
     //Wait for swing to stop
     delay(300);
+
+    if(allowPump == true){
+      //Turn on pump till full (time)
+      digitalWrite(outlet4,on);
+      delay(14000);
     
-    //Turn on pump till full (time)
-    digitalWrite(outlet4,on);
-    delay(14000);
-    
-    //Turn pump off
-    digitalWrite(outlet4,off);
+      //Turn pump off
+      digitalWrite(outlet4,off);
+    }
     
     //Wait for dripping to stop (time)
     delay(3000);
@@ -120,13 +125,14 @@ void loop(){
      * Print sensor data
      */
   
-    String s1 = "SN: ";
-    String s2 = ", Temp Air (c): " + (String)tempValA;
-    String s3 = ", Temp Water (c): " + (String)tempValW;
-    String s4 = ", Humidity: " + (String)humidVal;
-    String s5 = "%, RSC: " + (String)rightSwitchCount;
-    String s6 = ", LSC: " + (String)leftSwitchCount;
-    Serial.println(s1 + s2 + s3 + s4 + s5 + s6);
+    String s1 = "0000";
+    String s2 = "," + (String)tempValA;
+    String s3 = "," + (String)tempValW;
+    String s4 = "," + (String)humidVal;
+    String s5 = "," + (String)rightSwitchCount;
+    String s6 = "," + (String)leftSwitchCount;
+    String s7 = "," + (String)allowPump;
+    Serial.println(s1 + s2 + s3 + s4 + s5 + s6 + s7);
     
     //Drive forward until microSwitch is no longer pressed
     while(digitalRead(waterSwitch) == HIGH){
@@ -172,8 +178,8 @@ void loop(){
    * Stop Conditions
    */
 
-  //Time between trays exceeded 1000 ms
-  if(leftSwitchCount == rightSwitchCount && abs(leftSwitchTime - rightSwitchTime) > 1000){
+  //Time between trays exceeded 2000 ms
+  if(leftSwitchCount == rightSwitchCount && abs(leftSwitchTime - rightSwitchTime) > 2000){
     //!!! STOP !!!
     //Set all outlets to off
     digitalWrite(outlet1,off);
@@ -181,7 +187,7 @@ void loop(){
     digitalWrite(outlet3,off);
     digitalWrite(outlet4,off);
     
-    Serial.println("ERROR - Time between trays exceeded 1000ms");
+    Serial.println("ERROR: time");
 
     while(true){
       digitalWrite(outlet2,on);
@@ -200,7 +206,7 @@ void loop(){
     digitalWrite(outlet3,off);
     digitalWrite(outlet4,off);
     
-    Serial.println("ERROR - Switch count differed by 2 or more");
+    Serial.println("ERROR: count");
 
     while(true){
       digitalWrite(outlet2,on);
@@ -219,7 +225,7 @@ void loop(){
     digitalWrite(outlet3,off);
     digitalWrite(outlet4,off);
     
-    Serial.println("ERROR - eStop was pressed");
+    Serial.println("ERROR: eStop");
     delay(250);
     
     while(digitalRead(eStop) == LOW){
@@ -228,6 +234,19 @@ void loop(){
       digitalWrite(outlet2,off);
       delay(200);
     }
+    delay(250);
+  }
+
+  //water level too low, switch no longer pressed
+  //NOTE: does not stop system, just disables water pump
+  if(allowPump == true && digitalRead(waterLevelSwitch) == LOW){
+    Serial.println("ERROR: water");
+    
+    allowPump = false;
+    delay(250);
+  }
+  if(allowPump == false && digitalRead(waterLevelSwitch) == HIGH){
+    allowPump = true;
     delay(250);
   }
 }
