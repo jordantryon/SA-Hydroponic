@@ -140,10 +140,10 @@ void loop(){
     }
   
     //delay to move away from the switch
-    delay(800);
+    delay(400);
       
     //Turn off drive motor
-    digitalWrite(outlet3,off);
+    //digitalWrite(outlet3,off);
   }
   
   /*
@@ -237,15 +237,15 @@ void loop(){
     delay(250);
   }
 
-  //water level too low, switch no longer pressed
+  //water level too low, switch is high
   //NOTE: does not stop system, just disables water pump
-  if(allowPump == true && digitalRead(waterLevelSwitch) == LOW){
+  if(allowPump == true && digitalRead(waterLevelSwitch) == HIGH){
     Serial.println("ERROR: water");
     
     allowPump = false;
     delay(250);
   }
-  if(allowPump == false && digitalRead(waterLevelSwitch) == HIGH){
+  if(allowPump == false && digitalRead(waterLevelSwitch) == LOW){
     allowPump = true;
     delay(250);
   }
