@@ -1,2 +1,4 @@
 # SA-Hydroponic
-Code for a hydroponic system.
+Description: Code for the SourceAmerica hydroponic vertical farming system.
+Author: Jordan Tryon
+Version: Alpha
