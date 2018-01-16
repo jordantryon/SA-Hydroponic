@@ -20,8 +20,8 @@ Google Drive Folder ID: 000000000000000000000000000000000
 4. If problem persists, please send an Email to SAverticalfarm@gmail.com for further assistance.
 
 ## Major Feature List
-- [x] Automatically have machine cycle through trays and stop for watering.
-- [x] Have machine stop when it detects errors or problems with mechanisms.
+- [x] Automatically cycle through trays and stop for watering.
+- [x] Automatically stop when errors or problems with mechanisms are detected.
 - [x] Collect sensor data from farm enclosure.
 - [x] Print data to screen for operator information, errors, and debugging.
 - [x] Log data into a database system.
