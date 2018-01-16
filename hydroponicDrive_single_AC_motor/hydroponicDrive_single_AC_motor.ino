@@ -48,7 +48,7 @@ DHT dht(DHTPIN, DHTTYPE);
 void setup(){
   //Open the serial port at 9600 baud
   Serial.begin(9600);
-  
+
   //Define outlet pins as outputs
   pinMode(outlet1,OUTPUT);
   pinMode(outlet2,OUTPUT);
@@ -75,7 +75,7 @@ void setup(){
 
   //Humidity Sensor
   dht.begin();
-  
+
   Serial.println("Clear Buffer");
   Serial.println("Starting...");
 }
@@ -88,15 +88,15 @@ void loop(){
   /*
    * Watering routine
    */
-   
+
   //Forward
   digitalWrite(outlet3,on);
-  
+
   if(digitalRead(waterSwitch) == HIGH){
     //Stop
     delay(100);
     digitalWrite(outlet3,off);
-    
+
     //Wait for swing to stop
     delay(300);
 
@@ -104,27 +104,27 @@ void loop(){
       //Turn on pump till full (time)
       digitalWrite(outlet4,on);
       delay(14000);
-    
+
       //Turn pump off
       digitalWrite(outlet4,off);
     }
-    
+
     //Wait for dripping to stop (time)
     delay(3000);
 
     /*
      * Get sensor data
      */
-  
+
     sensors.requestTemperatures();  //Send command to get temperature readings
     tempValA = sensors.getTempCByIndex(1);
     tempValW = sensors.getTempCByIndex(0);
     humidVal = dht.readHumidity();
-  
+
     /*
      * Print sensor data
      */
-  
+
     String s1 = "0000";
     String s2 = "," + (String)tempValA;
     String s3 = "," + (String)tempValW;
@@ -133,23 +133,23 @@ void loop(){
     String s6 = "," + (String)leftSwitchCount;
     String s7 = "," + (String)allowPump;
     Serial.println(s1 + s2 + s3 + s4 + s5 + s6 + s7);
-    
+
     //Drive forward until microSwitch is no longer pressed
     while(digitalRead(waterSwitch) == HIGH){
       digitalWrite(outlet3,on);
     }
-  
+
     //delay to move away from the switch
-    delay(800);
-      
+    delay(400);
+
     //Turn off drive motor
-    digitalWrite(outlet3,off);
+    //digitalWrite(outlet3,off);
   }
-  
+
   /*
    * Check Sync
    */
-  
+
   //Left Switch
   if(leftSwitchLockout == false && digitalRead(leftSwitch) == 1){
     leftSwitchTime = millis();
@@ -173,9 +173,9 @@ void loop(){
     rightSwitchLockout = false;
     delay(debounceTime);
   }
-  
+
   /*
-   * Stop Conditions
+   * Unrecoverable Stop Conditions
    */
 
   //Time between trays exceeded 2000 ms
@@ -186,7 +186,7 @@ void loop(){
     digitalWrite(outlet2,off);
     digitalWrite(outlet3,off);
     digitalWrite(outlet4,off);
-    
+
     Serial.println("ERROR: time");
 
     while(true){
@@ -205,7 +205,7 @@ void loop(){
     digitalWrite(outlet2,off);
     digitalWrite(outlet3,off);
     digitalWrite(outlet4,off);
-    
+
     Serial.println("ERROR: count");
 
     while(true){
@@ -216,6 +216,10 @@ void loop(){
     }
   }
 
+  /*
+   * Recoverable Stop Conditions
+   */
+
   //eStop was pressed
   if(digitalRead(eStop) == LOW){
     //!!! STOP !!!
@@ -224,10 +228,10 @@ void loop(){
     digitalWrite(outlet2,off);
     digitalWrite(outlet3,off);
     digitalWrite(outlet4,off);
-    
+
     Serial.println("ERROR: eStop");
     delay(250);
-    
+
     while(digitalRead(eStop) == LOW){
       digitalWrite(outlet2,on);
       delay(200);
@@ -241,7 +245,7 @@ void loop(){
   //NOTE: does not stop system, just disables water pump
   if(allowPump == true && digitalRead(waterLevelSwitch) == LOW){
     Serial.println("ERROR: water");
-    
+
     allowPump = false;
     delay(250);
   }

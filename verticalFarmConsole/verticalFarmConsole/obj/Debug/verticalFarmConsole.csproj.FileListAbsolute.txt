@@ -1,0 +1,54 @@
+C:\Users\osweg\source\repos\verticalFarmConsole\verticalFarmConsole\bin\Debug\verticalFarmConsole.exe.config
+C:\Users\osweg\source\repos\verticalFarmConsole\verticalFarmConsole\bin\Debug\verticalFarmConsole.exe
+C:\Users\osweg\source\repos\verticalFarmConsole\verticalFarmConsole\bin\Debug\verticalFarmConsole.pdb
+C:\Users\osweg\source\repos\verticalFarmConsole\verticalFarmConsole\obj\Debug\verticalFarmConsole.csprojResolveAssemblyReference.cache
+C:\Users\osweg\source\repos\verticalFarmConsole\verticalFarmConsole\obj\Debug\verticalFarmConsole.csproj.CoreCompileInputs.cache
+C:\Users\osweg\source\repos\verticalFarmConsole\verticalFarmConsole\obj\Debug\verticalFarmConsole.exe
+C:\Users\osweg\source\repos\verticalFarmConsole\verticalFarmConsole\obj\Debug\verticalFarmConsole.pdb
+C:\Users\osweg\source\repos\verticalFarmConsole\verticalFarmConsole\bin\Debug\client_secret.json
+C:\Users\osweg\source\repos\verticalFarmConsole\verticalFarmConsole\bin\Debug\Google.Apis.Auth.dll
+C:\Users\osweg\source\repos\verticalFarmConsole\verticalFarmConsole\bin\Debug\Google.Apis.Auth.PlatformServices.dll
+C:\Users\osweg\source\repos\verticalFarmConsole\verticalFarmConsole\bin\Debug\Google.Apis.Core.dll
+C:\Users\osweg\source\repos\verticalFarmConsole\verticalFarmConsole\bin\Debug\Google.Apis.dll
+C:\Users\osweg\source\repos\verticalFarmConsole\verticalFarmConsole\bin\Debug\Google.Apis.Drive.v3.dll
+C:\Users\osweg\source\repos\verticalFarmConsole\verticalFarmConsole\bin\Debug\Google.Apis.PlatformServices.dll
+C:\Users\osweg\source\repos\verticalFarmConsole\verticalFarmConsole\bin\Debug\Google.Apis.Sheets.v4.dll
+C:\Users\osweg\source\repos\verticalFarmConsole\verticalFarmConsole\bin\Debug\Newtonsoft.Json.dll
+C:\Users\osweg\source\repos\verticalFarmConsole\verticalFarmConsole\bin\Debug\System.Net.Http.dll
+C:\Users\osweg\source\repos\verticalFarmConsole\verticalFarmConsole\bin\Debug\System.Security.Cryptography.Algorithms.dll
+C:\Users\osweg\source\repos\verticalFarmConsole\verticalFarmConsole\bin\Debug\System.Security.Cryptography.Encoding.dll
+C:\Users\osweg\source\repos\verticalFarmConsole\verticalFarmConsole\bin\Debug\System.Security.Cryptography.Primitives.dll
+C:\Users\osweg\source\repos\verticalFarmConsole\verticalFarmConsole\bin\Debug\System.Security.Cryptography.X509Certificates.dll
+C:\Users\osweg\source\repos\verticalFarmConsole\verticalFarmConsole\bin\Debug\Google.Apis.xml
+C:\Users\osweg\source\repos\verticalFarmConsole\verticalFarmConsole\bin\Debug\Google.Apis.Auth.xml
+C:\Users\osweg\source\repos\verticalFarmConsole\verticalFarmConsole\bin\Debug\Google.Apis.Core.xml
+C:\Users\osweg\source\repos\verticalFarmConsole\verticalFarmConsole\bin\Debug\Google.Apis.Drive.v3.xml
+C:\Users\osweg\source\repos\verticalFarmConsole\verticalFarmConsole\bin\Debug\Google.Apis.Sheets.v4.xml
+C:\Users\osweg\source\repos\verticalFarmConsole\verticalFarmConsole\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Jordan Tryon\source\repos\verticalFarmConsole\verticalFarmConsole\bin\Debug\client_secret.json
+C:\Users\Jordan Tryon\source\repos\verticalFarmConsole\verticalFarmConsole\bin\Debug\verticalFarmConsole.exe.config
+C:\Users\Jordan Tryon\source\repos\verticalFarmConsole\verticalFarmConsole\bin\Debug\verticalFarmConsole.exe
+C:\Users\Jordan Tryon\source\repos\verticalFarmConsole\verticalFarmConsole\bin\Debug\verticalFarmConsole.pdb
+C:\Users\Jordan Tryon\source\repos\verticalFarmConsole\verticalFarmConsole\bin\Debug\Google.Apis.Auth.dll
+C:\Users\Jordan Tryon\source\repos\verticalFarmConsole\verticalFarmConsole\bin\Debug\Google.Apis.Auth.PlatformServices.dll
+C:\Users\Jordan Tryon\source\repos\verticalFarmConsole\verticalFarmConsole\bin\Debug\Google.Apis.Core.dll
+C:\Users\Jordan Tryon\source\repos\verticalFarmConsole\verticalFarmConsole\bin\Debug\Google.Apis.dll
+C:\Users\Jordan Tryon\source\repos\verticalFarmConsole\verticalFarmConsole\bin\Debug\Google.Apis.Drive.v3.dll
+C:\Users\Jordan Tryon\source\repos\verticalFarmConsole\verticalFarmConsole\bin\Debug\Google.Apis.PlatformServices.dll
+C:\Users\Jordan Tryon\source\repos\verticalFarmConsole\verticalFarmConsole\bin\Debug\Google.Apis.Sheets.v4.dll
+C:\Users\Jordan Tryon\source\repos\verticalFarmConsole\verticalFarmConsole\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Jordan Tryon\source\repos\verticalFarmConsole\verticalFarmConsole\bin\Debug\System.Net.Http.dll
+C:\Users\Jordan Tryon\source\repos\verticalFarmConsole\verticalFarmConsole\bin\Debug\System.Security.Cryptography.Algorithms.dll
+C:\Users\Jordan Tryon\source\repos\verticalFarmConsole\verticalFarmConsole\bin\Debug\System.Security.Cryptography.Encoding.dll
+C:\Users\Jordan Tryon\source\repos\verticalFarmConsole\verticalFarmConsole\bin\Debug\System.Security.Cryptography.Primitives.dll
+C:\Users\Jordan Tryon\source\repos\verticalFarmConsole\verticalFarmConsole\bin\Debug\System.Security.Cryptography.X509Certificates.dll
+C:\Users\Jordan Tryon\source\repos\verticalFarmConsole\verticalFarmConsole\bin\Debug\Google.Apis.xml
+C:\Users\Jordan Tryon\source\repos\verticalFarmConsole\verticalFarmConsole\bin\Debug\Google.Apis.Auth.xml
+C:\Users\Jordan Tryon\source\repos\verticalFarmConsole\verticalFarmConsole\bin\Debug\Google.Apis.Core.xml
+C:\Users\Jordan Tryon\source\repos\verticalFarmConsole\verticalFarmConsole\bin\Debug\Google.Apis.Drive.v3.xml
+C:\Users\Jordan Tryon\source\repos\verticalFarmConsole\verticalFarmConsole\bin\Debug\Google.Apis.Sheets.v4.xml
+C:\Users\Jordan Tryon\source\repos\verticalFarmConsole\verticalFarmConsole\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Jordan Tryon\source\repos\verticalFarmConsole\verticalFarmConsole\obj\Debug\verticalFarmConsole.csprojResolveAssemblyReference.cache
+C:\Users\Jordan Tryon\source\repos\verticalFarmConsole\verticalFarmConsole\obj\Debug\verticalFarmConsole.csproj.CoreCompileInputs.cache
+C:\Users\Jordan Tryon\source\repos\verticalFarmConsole\verticalFarmConsole\obj\Debug\verticalFarmConsole.exe
+C:\Users\Jordan Tryon\source\repos\verticalFarmConsole\verticalFarmConsole\obj\Debug\verticalFarmConsole.pdb
