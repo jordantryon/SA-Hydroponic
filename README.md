@@ -11,7 +11,7 @@ Version: Alpha v0.0.3
 ## Troubleshooting
 1. Check for updates made to the GitHub repository.
 2. Check error message given by the console application, make necessary modifications if possible.
-3. Check VFproperties.txt and ensure it is formatted correctly as follows and contains the correct IDs:
+3. Check VFproperties.txt and ensure it contains the correct IDs and is formatted correctly as follows:
 ```
 Machine Serial Number: 000
 Current Spreadsheet ID: 00000000000000000000000000000000000000000000
