@@ -18,3 +18,10 @@ Current Spreadsheet ID: 00000000000000000000000000000000000000000000
 Google Drive Folder ID: 000000000000000000000000000000000
 ```
 4. If more assistance is needed, send an Email to SAverticalfarm@gmail.com.
+
+## Major Feature List
+- [x] Collect sensor data from farm enclosure.
+- [x] Print data to screen for operator information.
+- [x] Log data into a database system.
+- [x] Log data into Google Sheets for easy viewing, sharing, and data analysis.
+- [ ] Create new Google Sheet automatically when current Sheet reaches 'n' rows.
