@@ -245,12 +245,15 @@ void loop(){
     delay(250);
   }
 
+  //water level too low, switch is high
   //NOTE: does not stop system, just disables water pump
+  if(allowPump == true && digitalRead(waterLevelSwitch) == HIGH){
     Serial.println("ERROR: water");
 
     allowPump = false;
     delay(250);
   }
+  if(allowPump == false && digitalRead(waterLevelSwitch) == LOW){
     allowPump = true;
     delay(250);
   }
