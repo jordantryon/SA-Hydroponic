@@ -27,3 +27,5 @@ Google Drive Folder ID: 000000000000000000000000000000000
 - [x] Log data into a database system.
 - [x] Log data into Google Sheets for easy viewing, sharing, and data analysis.
 - [ ] Create new Google Sheet automatically when current Sheet reaches 'n' rows.
+- [ ] Implement barcode labels and scanner to track trays and plants over time.
+- [ ] Prevent random crashes when unpredictable errors occur (internet loss, etc.).
