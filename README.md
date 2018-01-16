@@ -21,6 +21,7 @@ Google Drive Folder ID: 000000000000000000000000000000000
 
 ## Major Feature List
 - [x] Automatically have machine cycle through trays and stop for watering.
+- [x] Have machine stop when it detects errors or problems with mechanisms.
 - [x] Collect sensor data from farm enclosure.
 - [x] Print data to screen for operator information, errors, and debugging.
 - [x] Log data into a database system.
