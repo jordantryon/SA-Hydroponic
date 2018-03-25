@@ -296,11 +296,12 @@ void updateLCDsensors(){
   lcd.setCursor(0,2);
   lcd.print("                    ");
 
-  lcd.print("Ta: ");// + (String)tempValA);
+  lcd.setCursor(0,1);
+  lcd.print("Ta: " + (String)tempValA);
   lcd.setCursor(10,1);
-  lcd.print("Tw: ");// + (String)tempValW);
+  lcd.print("Tw: " + (String)tempValW);
   lcd.setCursor(0,2);
-  lcd.print("H%: ");// + (String)humidVal);
+  lcd.print("H%: " + (String)humidVal);
 }
 
 //update count values on LCD, leave other values unchanged
@@ -309,7 +310,7 @@ void updateLCDcount(){
   lcd.print("                    ");
 
   lcd.setCursor(0,0);
-  lcd.print("LC: ");// + (String)leftSwitchCount);
+  lcd.print("LC: " + (String)leftSwitchCount);
   lcd.setCursor(10,0);
-  lcd.print("RC: ");// + (String)rightSwitchCount);
+  lcd.print("RC: " + (String)rightSwitchCount);
 }
