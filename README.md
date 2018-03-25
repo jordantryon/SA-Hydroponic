@@ -1,7 +1,7 @@
 # SA-Hydroponic
 **Description:** Arduino code and console application for the SourceAmerica hydroponic vertical farming system.
 
-**Version:** Alpha v0.0.3
+**Version:** 0.0.3
 
 ## Authors / Contributors
 - Jordan Tryon
@@ -19,13 +19,24 @@ Google Drive Folder ID: 000000000000000000000000000000000
 ```
 4. If problem persists, please send an Email to SAverticalfarm@gmail.com for further assistance.
 
-## Major Feature List
-- [x] Automatically cycle through trays and stop for watering.
-- [x] Automatically stop when errors or problems with mechanisms are detected.
-- [x] Collect sensor data from farm enclosure.
-- [x] Print data to screen for operator information, errors, and debugging.
-- [x] Log data into a database system.
-- [x] Log data into Google Sheets for easy viewing, sharing, and data analysis.
-- [ ] Create new Google Sheet automatically when current Sheet reaches 'n' rows.
-- [ ] Implement barcode labels and scanner to track trays and plants over time.
-- [ ] Prevent random crashes when unpredictable errors occur (internet loss, etc.).
+## Change Log
+**0.0.1 The Safety Update**
+- Run AC motor to cycle through trays automatically.
+- Stop to water trays for specified amount of time.
+0.0.2
+- Added sensors to check temperature, humidity, etc.
+- Print sensor data to serial monitor for operators.
+0.0.3
+- Added error checking features to prevent system damage.
+  - Left and right time offset.
+  - Left and right tray counts.
+  - Lack of water in reservoir.
+- Added eStop buttons to allow operators to stop the machine easily and safely.
+**0.1.0 The Logging Update**
+- Implemented console application to log serial data into text files.
+0.1.1
+- Console application modified to log data into a Google Sheet.
+**0.2.0 The User Friendly Update**
+- Added support for an LCD to display current sensor readings and status messages.
+- Added secondary pump to refill reservoir, machine can now make it through the night.
+- Code is commented an reorganized, now with functions.
