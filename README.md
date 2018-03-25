@@ -1,7 +1,7 @@
 # SA-Hydroponic
 **Description:** Arduino code and console application for the SourceAmerica hydroponic vertical farming system.
 
-**Version:** 0.0.3
+**Version:** 0.2.0
 
 ## Authors / Contributors
 - Jordan Tryon
