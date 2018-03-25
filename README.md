@@ -23,9 +23,11 @@ Google Drive Folder ID: 000000000000000000000000000000000
 **0.0.1 The Safety Update**
 - Run AC motor to cycle through trays automatically.
 - Stop to water trays for specified amount of time.
+
 0.0.2
 - Added sensors to check temperature, humidity, etc.
 - Print sensor data to serial monitor for operators.
+
 0.0.3
 - Added error checking features to prevent system damage.
   - Left and right time offset.
@@ -35,6 +37,7 @@ Google Drive Folder ID: 000000000000000000000000000000000
 
 **0.1.0 The Logging Update**
 - Implemented console application to log serial data into text files.
+
 0.1.1
 - Console application modified to log data into a Google Sheet.
 
