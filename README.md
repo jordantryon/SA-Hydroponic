@@ -30,12 +30,14 @@ Google Drive Folder ID: 000000000000000000000000000000000
 - Added error checking features to prevent system damage.
   - Left and right time offset.
   - Left and right tray counts.
-  - Lack of water in reservoir.
+  - Lack of water in reservoir.s
 - Added eStop buttons to allow operators to stop the machine easily and safely.
+
 **0.1.0 The Logging Update**
 - Implemented console application to log serial data into text files.
 0.1.1
 - Console application modified to log data into a Google Sheet.
+
 **0.2.0 The User Friendly Update**
 - Added support for an LCD to display current sensor readings and status messages.
 - Added secondary pump to refill reservoir, machine can now make it through the night.
